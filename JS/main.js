@@ -1,39 +1,46 @@
-const kilometri = prompt("Inserire numero di chilometri da percorrere")
-const eta = prompt("Inserire l'età del passeggero")
+const kilometri = prompt("Inserire numero di chilometri da percorrere");
+const eta = prompt("Inserire l'età del passeggero");
 
-const prezzoIniziale = kilometri*0.21
+const prezzoIniziale = kilometri*0.21;
 
-if (eta > 65) {
+if (isNaN(kilometri) || (isNaN(eta))) {
 
-    const sconto = prezzoIniziale*0.4
+    alert("I dati inseriti non sono validi")
+}
+else {
 
-    const prezzoFinale = prezzoIniziale - sconto
+    if (eta > 65) {
 
-    const prezzoArrotondato = Math.round(prezzoFinale*100)/100
+        const sconto = prezzoIniziale*0.4;
 
-    const paragrafo = document.getElementById("paragrafo")
-    paragrafo.innerHTML = `Il prezzo del biglietto è ${prezzoArrotondato}€`
+        const prezzoFinale = prezzoIniziale - sconto;
 
-} else if (eta < 18) {
-    
-    const sconto = prezzoIniziale*0.2
+        const prezzoArrotondato = Math.round(prezzoFinale*100)/100;
 
-    const prezzoFinale = prezzoIniziale - sconto
+        const paragrafo = document.getElementById("paragrafo");
+        paragrafo.innerHTML = `Il prezzo del biglietto è ${prezzoArrotondato}€`;
 
-    const prezzoArrotondato = Math.round(prezzoFinale*100)/100
+    } else if (eta < 18) {
 
-    const paragrafo = document.getElementById("paragrafo")
-    paragrafo.innerHTML = `Il prezzo del biglietto è ${prezzoArrotondato}€`
+        const sconto = prezzoIniziale*0.2;
 
-} else {
-    
-    const sconto = 0
+        const prezzoFinale = prezzoIniziale - sconto;
 
-    const prezzoFinale = prezzoIniziale - sconto
+        const prezzoArrotondato = Math.round(prezzoFinale*100)/100;
 
-    const prezzoArrotondato = Math.round(prezzoFinale*100)/100
+        const paragrafo = document.getElementById("paragrafo");
+        paragrafo.innerHTML = `Il prezzo del biglietto è ${prezzoArrotondato}€`;
 
-    const paragrafo = document.getElementById("paragrafo")
-    paragrafo.innerHTML = `Il prezzo del biglietto è ${prezzoArrotondato}€`
+    } else {
 
+        const sconto = 0;
+
+        const prezzoFinale = prezzoIniziale - sconto;
+
+        const prezzoArrotondato = Math.round(prezzoFinale*100)/100;
+
+        const paragrafo = document.getElementById("paragrafo");
+        paragrafo.innerHTML = `Il prezzo del biglietto è ${prezzoArrotondato}€`;
+
+    }
 }
